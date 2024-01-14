@@ -1,0 +1,28 @@
+multiple queries:
+    queries = [
+    "(game:paper) (block:grn OR block:rtr OR block:rav) flavor:/^[^s]/",
+    "(game:paper) (block:grn OR block:rtr OR block:rav) type=land",
+    "(game:paper) (block:grn OR block:rtr OR block:rav) (id=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)",
+    "(game:paper) (block:grn OR block:rtr OR block:rav) (watermark=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)",
+    "(game:paper) (block:grn OR block:rtr OR block:rav) (lore=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)",
+    ]
+
+single query:
+    "(game:paper) (block:grn OR block:rtr OR block:rav) flavor:/^[^s]/|type=land|(id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic)|(watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic)|(lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic)"
+
+q:  // The fulltext search query 
+    For all Ravnica blocks cards that contain flavor text - (game:paper) (block:grn OR block:rtr OR block:rav) flavor:/^[^\s]/
+
+    For all Ravnica blocks cards that are lands - (game:paper) (block:grn OR block:rtr OR block:rav) type=land
+
+    For all Ravnica blocks cards that have the color identity of any guild - (game:paper) (block:grn OR block:rtr OR block:rav) (id=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)
+
+    For all Ravnica blocks cards that have a watermark - (game:paper) (block:grn OR block:rtr OR block:rav) (watermark=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)
+
+    For all Ravnica blocks cards that have lore related to a guild - (game:paper) (block:grn OR block:rtr OR block:rav) (lore=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)
+
+order: // How Scryfall should sort the returned cards.
+    color - sort by color
+
+unique: // Specifies if Scryfall should remove “duplicate” results in your query.
+    art - Returns only one copy of each unique artwork for matching cards.

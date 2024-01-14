@@ -1,0 +1,386 @@
+{
+    "object": "list",
+    "total_cards": 1419,
+    "has_more": true,
+    "next_page": "https://api.scryfall.com/cards/search?format=json&include_extras=true&include_multilingual=false&include_variations=false&order=name&page=2&q=%28game%3Apaper%29+%28block%3Agrn+or+block%3Artr+or+block%3Arav%29+flavor%3A%2F%5E%5B%5E%5Cs%5D%2F&unique=cards",
+    "data": [
+        {
+            "object": "card",
+            "id": "3b1e92b4-6e53-4dba-a572-c67e01965ac5",
+            "oracle_id": "1c747fe2-289e-492a-a846-aa77707e2dc3",
+            "multiverse_ids": [
+                253561
+            ],
+            "mtgo_id": 46497,
+            "mtgo_foil_id": 46498,
+            "tcgplayer_id": 66457,
+            "cardmarket_id": 258288,
+            "name": "Abrupt Decay",
+            "lang": "en",
+            "released_at": "2012-10-05",
+            "uri": "https://api.scryfall.com/cards/3b1e92b4-6e53-4dba-a572-c67e01965ac5",
+            "scryfall_uri": "https://scryfall.com/card/rtr/141/abrupt-decay?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_uris": {
+                "small": "https://cards.scryfall.io/small/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1562785076",
+                "normal": "https://cards.scryfall.io/normal/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1562785076",
+                "large": "https://cards.scryfall.io/large/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1562785076",
+                "png": "https://cards.scryfall.io/png/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.png?1562785076",
+                "art_crop": "https://cards.scryfall.io/art_crop/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1562785076",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/3/b/3b1e92b4-6e53-4dba-a572-c67e01965ac5.jpg?1562785076"
+            },
+            "mana_cost": "{B}{G}",
+            "cmc": 2.0,
+            "type_line": "Instant",
+            "oracle_text": "This spell can't be countered.\nDestroy target nonland permanent with mana value 3 or less.",
+            "colors": [
+                "B",
+                "G"
+            ],
+            "color_identity": [
+                "B",
+                "G"
+            ],
+            "keywords": [],
+            "legalities": {
+                "standard": "not_legal",
+                "future": "not_legal",
+                "historic": "not_legal",
+                "timeless": "not_legal",
+                "gladiator": "not_legal",
+                "pioneer": "legal",
+                "explorer": "not_legal",
+                "modern": "legal",
+                "legacy": "legal",
+                "pauper": "not_legal",
+                "vintage": "legal",
+                "penny": "not_legal",
+                "commander": "legal",
+                "oathbreaker": "legal",
+                "brawl": "not_legal",
+                "historicbrawl": "not_legal",
+                "alchemy": "not_legal",
+                "paupercommander": "not_legal",
+                "duel": "legal",
+                "oldschool": "not_legal",
+                "premodern": "not_legal",
+                "predh": "not_legal"
+            },
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "reserved": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+                "nonfoil",
+                "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "80b2374d-c5f1-403e-9772-f6c806fd275e",
+            "set": "rtr",
+            "set_name": "Return to Ravnica",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/80b2374d-c5f1-403e-9772-f6c806fd275e",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Artr&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/rtr?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/3b1e92b4-6e53-4dba-a572-c67e01965ac5/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A1c747fe2-289e-492a-a846-aa77707e2dc3&unique=prints",
+            "collector_number": "141",
+            "digital": false,
+            "rarity": "rare",
+            "watermark": "golgari",
+            "flavor_text": "The Izzet quickly suspended their policy of lifetime guarantees.",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Svetlin Velinov",
+            "artist_ids": [
+                "ffd063ae-c097-4f26-b2e6-b1e2137708bc"
+            ],
+            "illustration_id": "740f1a76-af24-416e-bd7a-1521a6b175d2",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 597,
+            "prices": {
+                "usd": "2.36",
+                "usd_foil": "9.03",
+                "usd_etched": null,
+                "eur": "2.96",
+                "eur_foil": "8.64",
+                "tix": "0.09"
+            },
+            "related_uris": {
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=253561&printed=false",
+                "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DAbrupt%2BDecay",
+                "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DAbrupt%2BDecay",
+                "edhrec": "https://edhrec.com/route/?cc=Abrupt+Decay"
+            },
+            "purchase_uris": {
+                "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F66457%3Fpage%3D1",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Abrupt+Decay&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "cardhoarder": "https://www.cardhoarder.com/cards/46497?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+        },
+        {
+            "object": "card",
+            "id": "1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b",
+            "oracle_id": "227cbba1-700b-4255-b730-b324ab3dec34",
+            "multiverse_ids": [
+                369000
+            ],
+            "mtgo_id": 48352,
+            "mtgo_foil_id": 48353,
+            "tcgplayer_id": 67995,
+            "cardmarket_id": 261533,
+            "name": "Beetleform Mage",
+            "lang": "en",
+            "released_at": "2013-05-03",
+            "uri": "https://api.scryfall.com/cards/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b",
+            "scryfall_uri": "https://scryfall.com/card/dgm/54/beetleform-mage?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_uris": {
+                "small": "https://cards.scryfall.io/small/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.jpg?1562900603",
+                "normal": "https://cards.scryfall.io/normal/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.jpg?1562900603",
+                "large": "https://cards.scryfall.io/large/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.jpg?1562900603",
+                "png": "https://cards.scryfall.io/png/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.png?1562900603",
+                "art_crop": "https://cards.scryfall.io/art_crop/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.jpg?1562900603",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/1/e/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b.jpg?1562900603"
+            },
+            "mana_cost": "{1}{G}{U}",
+            "cmc": 3.0,
+            "type_line": "Creature — Human Insect Wizard",
+            "oracle_text": "{G}{U}: Beetleform Mage gets +2/+2 and gains flying until end of turn. Activate only once each turn.",
+            "power": "2",
+            "toughness": "2",
+            "colors": [
+                "G",
+                "U"
+            ],
+            "color_identity": [
+                "G",
+                "U"
+            ],
+            "keywords": [],
+            "legalities": {
+                "standard": "not_legal",
+                "future": "not_legal",
+                "historic": "not_legal",
+                "timeless": "not_legal",
+                "gladiator": "not_legal",
+                "pioneer": "legal",
+                "explorer": "not_legal",
+                "modern": "legal",
+                "legacy": "legal",
+                "pauper": "legal",
+                "vintage": "legal",
+                "penny": "legal",
+                "commander": "legal",
+                "oathbreaker": "legal",
+                "brawl": "not_legal",
+                "historicbrawl": "not_legal",
+                "alchemy": "not_legal",
+                "paupercommander": "legal",
+                "duel": "legal",
+                "oldschool": "not_legal",
+                "premodern": "not_legal",
+                "predh": "not_legal"
+            },
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "reserved": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+                "nonfoil",
+                "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "c8bd8520-cd98-45cd-b533-8d40c2087426",
+            "set": "dgm",
+            "set_name": "Dragon's Maze",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/c8bd8520-cd98-45cd-b533-8d40c2087426",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Adgm&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dgm?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/1e2f7d7f-4097-419b-8de0-b7bf28fc3a4b/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A227cbba1-700b-4255-b730-b324ab3dec34&unique=prints",
+            "collector_number": "54",
+            "digital": false,
+            "rarity": "common",
+            "watermark": "simic",
+            "flavor_text": "\"When the Simic say to take command of your life, we don't mean just your career.\"\n—Vorel of the Hull Clade",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Marco Nelor",
+            "artist_ids": [
+                "c0f95ec3-c7ca-47d6-be5c-b37dfce37be5"
+            ],
+            "illustration_id": "f49e0af6-bc0d-47c5-a21d-714c43b77417",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 23955,
+            "prices": {
+                "usd": "0.03",
+                "usd_foil": "0.20",
+                "usd_etched": null,
+                "eur": "0.05",
+                "eur_foil": "0.24",
+                "tix": "0.03"
+            },
+            "related_uris": {
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=369000&printed=false",
+                "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DBeetleform%2BMage",
+                "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DBeetleform%2BMage",
+                "edhrec": "https://edhrec.com/route/?cc=Beetleform+Mage"
+            },
+            "purchase_uris": {
+                "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F67995%3Fpage%3D1",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Beetleform+Mage&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "cardhoarder": "https://www.cardhoarder.com/cards/48352?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+        },
+        {
+            "object": "card",
+            "id": "184e0964-1e04-49f9-bb76-0a6e682c52f5",
+            "oracle_id": "05775dea-d7f0-4e0b-af4d-ba8d320dc4c0",
+            "multiverse_ids": [
+                107310
+            ],
+            "mtgo_id": 24135,
+            "mtgo_foil_id": 24136,
+            "tcgplayer_id": 13839,
+            "cardmarket_id": 12975,
+            "name": "Carom",
+            "lang": "en",
+            "released_at": "2006-05-05",
+            "uri": "https://api.scryfall.com/cards/184e0964-1e04-49f9-bb76-0a6e682c52f5",
+            "scryfall_uri": "https://scryfall.com/card/dis/6/carom?utm_source=api",
+            "layout": "normal",
+            "highres_image": true,
+            "image_status": "highres_scan",
+            "image_uris": {
+                "small": "https://cards.scryfall.io/small/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.jpg?1593272465",
+                "normal": "https://cards.scryfall.io/normal/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.jpg?1593272465",
+                "large": "https://cards.scryfall.io/large/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.jpg?1593272465",
+                "png": "https://cards.scryfall.io/png/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.png?1593272465",
+                "art_crop": "https://cards.scryfall.io/art_crop/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.jpg?1593272465",
+                "border_crop": "https://cards.scryfall.io/border_crop/front/1/8/184e0964-1e04-49f9-bb76-0a6e682c52f5.jpg?1593272465"
+            },
+            "mana_cost": "{1}{W}",
+            "cmc": 2.0,
+            "type_line": "Instant",
+            "oracle_text": "The next 1 damage that would be dealt to target creature this turn is dealt to another target creature instead.\nDraw a card.",
+            "colors": [
+                "W"
+            ],
+            "color_identity": [
+                "W"
+            ],
+            "keywords": [],
+            "legalities": {
+                "standard": "not_legal",
+                "future": "not_legal",
+                "historic": "not_legal",
+                "timeless": "not_legal",
+                "gladiator": "not_legal",
+                "pioneer": "not_legal",
+                "explorer": "not_legal",
+                "modern": "legal",
+                "legacy": "legal",
+                "pauper": "legal",
+                "vintage": "legal",
+                "penny": "legal",
+                "commander": "legal",
+                "oathbreaker": "legal",
+                "brawl": "not_legal",
+                "historicbrawl": "not_legal",
+                "alchemy": "not_legal",
+                "paupercommander": "legal",
+                "duel": "legal",
+                "oldschool": "not_legal",
+                "premodern": "not_legal",
+                "predh": "legal"
+            },
+            "games": [
+                "paper",
+                "mtgo"
+            ],
+            "reserved": false,
+            "foil": true,
+            "nonfoil": true,
+            "finishes": [
+                "nonfoil",
+                "foil"
+            ],
+            "oversized": false,
+            "promo": false,
+            "reprint": false,
+            "variation": false,
+            "set_id": "fdebeda1-b95f-4343-8a94-d125821e6b5c",
+            "set": "dis",
+            "set_name": "Dissension",
+            "set_type": "expansion",
+            "set_uri": "https://api.scryfall.com/sets/fdebeda1-b95f-4343-8a94-d125821e6b5c",
+            "set_search_uri": "https://api.scryfall.com/cards/search?order=set&q=e%3Adis&unique=prints",
+            "scryfall_set_uri": "https://scryfall.com/sets/dis?utm_source=api",
+            "rulings_uri": "https://api.scryfall.com/cards/184e0964-1e04-49f9-bb76-0a6e682c52f5/rulings",
+            "prints_search_uri": "https://api.scryfall.com/cards/search?order=released&q=oracleid%3A05775dea-d7f0-4e0b-af4d-ba8d320dc4c0&unique=prints",
+            "collector_number": "6",
+            "digital": false,
+            "rarity": "common",
+            "flavor_text": "Her enemy's strength is her own.",
+            "card_back_id": "0aeebaf5-8c7d-4636-9e82-8c27447861f7",
+            "artist": "Alex Horley-Orlandelli",
+            "artist_ids": [
+                "1631a2ad-bf03-4ab9-b86c-60da982d58a1"
+            ],
+            "illustration_id": "32e5ccab-d71e-42a9-9c35-324725eae568",
+            "border_color": "black",
+            "frame": "2003",
+            "full_art": false,
+            "textless": false,
+            "booster": true,
+            "story_spotlight": false,
+            "edhrec_rank": 16972,
+            "penny_rank": 12162,
+            "prices": {
+                "usd": "0.12",
+                "usd_foil": "0.40",
+                "usd_etched": null,
+                "eur": "0.12",
+                "eur_foil": "0.33",
+                "tix": "0.04"
+            },
+            "related_uris": {
+                "gatherer": "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=107310&printed=false",
+                "tcgplayer_infinite_articles": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Darticle%26game%3Dmagic%26partner%3Dscryfall%26q%3DCarom",
+                "tcgplayer_infinite_decks": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&trafcat=infinite&u=https%3A%2F%2Finfinite.tcgplayer.com%2Fsearch%3FcontentMode%3Ddeck%26game%3Dmagic%26partner%3Dscryfall%26q%3DCarom",
+                "edhrec": "https://edhrec.com/route/?cc=Carom"
+            },
+            "purchase_uris": {
+                "tcgplayer": "https://tcgplayer.pxf.io/c/4931599/1830156/21018?subId1=api&u=https%3A%2F%2Fwww.tcgplayer.com%2Fproduct%2F13839%3Fpage%3D1",
+                "cardmarket": "https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall&searchString=Carom&utm_campaign=card_prices&utm_medium=text&utm_source=scryfall",
+                "cardhoarder": "https://www.cardhoarder.com/cards/24135?affiliate_id=scryfall&ref=card-profile&utm_campaign=affiliate&utm_medium=card&utm_source=scryfall"
+            }
+        }
+    ]
+}
