@@ -83,6 +83,7 @@ function processResponses(cardData) {
     cardFiltered.Colors = getColorIdentity(card.color_identity);
     cardFiltered.Guild = findGuild(card);
     cardFiltered.Artist = card.artist;
+    cardFiltered.Type = card.type_line;
     cardFiltered.ImageLink = card.image_uris.art_crop;
     if (Object.hasOwn(card, "watermark")) cardFiltered.Watermark = card.watermark;
 
