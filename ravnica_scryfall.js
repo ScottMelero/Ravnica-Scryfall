@@ -37,12 +37,12 @@ function queryScryfall(query, currentPage = 1) {
       })
       .then(function (response) {
         var data = response.data;
-        console.log("total cards in response: " + response.data.total_cards);
+        if (currentPage == 1) console.log("total cards in response: " + response.data.total_cards);
         // console.log(response.data);
 
         data.data.forEach((card) => {
           responses.push(card);
-          console.log("added card " + card.name + " to responses.");
+          // console.log("added card " + card.name + " to responses.");
         });
 
         if (Object.hasOwn(data, "next_page")) {
@@ -78,11 +78,11 @@ function processResponses(cardData) {
 
     var cardFiltered = {};
     cardFiltered.Name = card.name;
-    cardFiltered.Image = card.image_uris.art_crop;
     cardFiltered.Flavor = card.flavor_text;
-    cardFiltered.oracleText = card.oracle_text;
-    cardFiltered.Colors = card.color_identity;
+    cardFiltered.OracleText = card.oracle_text;
+    cardFiltered.Colors = getColorIdentity(card.color_identity);
     cardFiltered.Guild = findGuild(card);
+    cardFiltered.ImageLink = card.image_uris.art_crop;
     if (Object.hasOwn(card, "watermark")) cardFiltered.Watermark = card.watermark;
 
     result.push(cardFiltered);
@@ -90,51 +90,6 @@ function processResponses(cardData) {
 
   // turn our result array into a sheet
   outputXLSX(result);
-}
-
-/**
- * returns the color identity in english instead of scryfall's syntax
- * @param {Array} colors colors of the card in scryfall syntax
- */
-function getColorIdentity(colors) {
-    switch (colors) {
-        case ["U", "W"]:
-          return "Azorius";
-        case ["R", "W"]:
-          return "Boros";
-        case ["B", "U"]:
-          return "Dimir";
-        case ["B", "G"]:
-          return "Golgari";
-        case ["G", "R"]:
-          return "Gruul";
-        case ["R", "U"]:
-          return "Izzet";
-        case ["B", "W"]:
-          return "Orzhov";
-        case ["B", "R"]:
-          return "Rakdos";
-        case ["G", "W"]:
-          return "Selesnya";
-        case ["G", "U"]:
-          return "Simic";
-        default:
-          break;
-      }
-      switch (colors) {
-        case ["W"]:
-          return "White";
-        case ["U"]:
-          return "Blue";
-        case ["B"]:
-          return "Black";
-        case ["R"]:
-          return "Red";
-        case ["G"]:
-          return "Green";
-        default:
-          break;
-      }
 }
 
 /**
@@ -148,35 +103,93 @@ function outputXLSX(result) {
   xlsx.writeFile(newWorkBook, "ravnica_scryfall.xlsx");
 }
 
+
+
+/**
+ * returns the color identity in english instead of scryfall's syntax
+ * @param {Array} colors colors of the card in scryfall syntax
+ */
+function getColorIdentity(colors) {
+    switch (colors.toString()) {
+        case "U,W":
+            return "Azorius";
+        case "R,W":
+            return "Boros";
+        case "B,U":
+            return "Dimir";
+        case "B,G":
+            return "Golgari";
+        case "G,R":
+            return "Gruul";
+        case "R,U":
+            return "Izzet";
+        case "B,W":
+            return "Orzhov";
+        case "B,R":
+            return "Rakdos";
+        case "G,W":
+            return "Selesnya";
+        case "G,U":
+            return "Simic";
+        case "W":
+            return "White";
+        case "U":
+            return "Blue";
+        case "B":
+            return "Black";
+        case "R":
+            return "Red";
+        case "G":
+            return "Green";
+        case "B,R,U,W":
+            return "Yore-Tiller";
+        case "B,G,R,U":
+            return "Glint-Eye";
+        case "B,G,R,W":
+            return "Dune-Brood";
+        case "G,R,U,W":
+            return "Ink-Treader";
+        case "B,G,U,W":
+            return "Witch-Maw";
+        case "B,G,R,U,W":
+            return "All Colors"
+        case "":
+            return "Colorless"
+        default:
+            return "Tricolor";
+      }
+}
+
 /**
  * returns either, azorius, boros, dimir, golgari, gruul, izzet, orzhov, rakdos, selesnya, simic, or guildless
  * @param {JSON} card a card to have the guild determined for
  */
 function findGuild(card) {
   // return the guild affiliation of the card
-  if (Object.hasOwn(card, "watermark")) return card.watermark;
+  if (Object.hasOwn(card, "watermark")) return card.watermark[0].toUpperCase() + card.watermark.slice(1);
 
-  switch (card.color_identity) {
-    case ["U", "W"]:
-      return "Azorius";
-    case ["R", "W"]:
-      return "Boros";
-    case ["B", "U"]:
-      return "Dimir";
-    case ["B", "G"]:
-      return "Golgari";
-    case ["G", "R"]:
-      return "Gruul";
-    case ["R", "U"]:
-      return "Izzet";
-    case ["B", "W"]:
-      return "Orzhov";
-    case ["B", "R"]:
-      return "Rakdos";
-    case ["G", "W"]:
-      return "Selesnya";
-    case ["G", "U"]:
-      return "Simic";
+  // TODO make logic to add multiple guild affiliations, like on fuse cards
+  if (card.color_identity.length == 3) return "Combo";
+
+  switch (card.color_identity.toString()) {
+    case "U,W":
+        return "Azorius";
+    case "R,W":
+        return "Boros";
+    case "B,U":
+        return "Dimir";
+    case "B,G":
+        return "Golgari";
+    case "G,R":
+        return "Gruul";
+    case "R,U":
+        return "Izzet";
+    case "B,W":
+        return "Orzhov";
+    case "B,R":
+        return "Rakdos";
+    case "G,W":
+        return "Selesnya";
     default:
       return "Guildless";
   }
