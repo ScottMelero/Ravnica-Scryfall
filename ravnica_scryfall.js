@@ -73,19 +73,25 @@ function processResponses(cardData) {
   var uniqueIds = new Set();
 
   cardData.forEach((card) => {
+      
+    // Should be redundant
     if (card.id in uniqueIds) return;
+        
     uniqueIds.add(card.id);
 
     var cardFiltered = {};
     cardFiltered.Name = card.name;
-    cardFiltered.Flavor = card.flavor_text;
-    cardFiltered.OracleText = card.oracle_text;
-    cardFiltered.Colors = getColorIdentity(card.color_identity);
-    cardFiltered.Guild = findGuild(card);
+    cardFiltered.Image = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 10, 4)))"; // Formula for geeting the image from a url in the cell 10 columns to the right
     cardFiltered.Artist = card.artist;
+    cardFiltered.Flavor = card.flavor_text;
+    cardFiltered.Guild = findGuild(card);
+    cardFiltered.Colors = getColorIdentity(card.color_identity);
     cardFiltered.Type = card.type_line;
+    cardFiltered.PowerToughness = card.power + "/" + card.toughness;
+    cardFiltered.OracleText = card.oracle_text;
+    cardFiltered.Watermark = card.watermark;
+    cardFiltered.Set = card.set_name;
     cardFiltered.ImageLink = card.image_uris.art_crop;
-    if (Object.hasOwn(card, "watermark")) cardFiltered.Watermark = card.watermark;
 
     result.push(cardFiltered);
   });
@@ -167,8 +173,8 @@ function getColorIdentity(colors) {
  * @param {JSON} card a card to have the guild determined for
  */
 function findGuild(card) {
-  // return the guild affiliation of the card
-  if (Object.hasOwn(card, "watermark")) return card.watermark[0].toUpperCase() + card.watermark.slice(1);
+  // return the guild affiliation of the card, planeswalker watermarks get in the way
+  if (Object.hasOwn(card, "watermark") && card.watermark != "planeswalker") return card.watermark[0].toUpperCase() + card.watermark.slice(1);
 
   // TODO make logic to add multiple guild affiliations, like on fuse cards
   if (card.color_identity.length == 3) return "Combo";

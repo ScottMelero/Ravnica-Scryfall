@@ -10,7 +10,7 @@ multiple queries:
 single query:
     "(game:paper) (block:grn OR block:rtr OR block:rav) flavor:/^[^s]/|type=land|(id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic)|(watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic)|(lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic)"
 
-q:  // The fulltext search query 
+q:  // The queries that are being combined above
     For all Ravnica blocks cards that contain flavor text - (game:paper) (block:grn OR block:rtr OR block:rav) flavor:/^[^\s]/
 
     For all Ravnica blocks cards that are lands - (game:paper) (block:grn OR block:rtr OR block:rav) type=land
