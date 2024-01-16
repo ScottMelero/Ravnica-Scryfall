@@ -81,7 +81,7 @@ function processResponses(cardData) {
 
     var cardFiltered = {};
     cardFiltered.Name = card.name;
-    cardFiltered.Image = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 10, 4)))"; // Formula for geeting the image from a url in the cell 10 columns to the right
+    cardFiltered.Image = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 10)))"; // Formula for geeting the image from a url in the cell 10 columns to the right
     cardFiltered.Artist = card.artist;
     cardFiltered.Flavor = card.flavor_text;
     cardFiltered.Guild = findGuild(card);
