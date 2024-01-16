@@ -87,7 +87,7 @@ function processResponses(cardData) {
     cardFiltered.Guild = findGuild(card);
     cardFiltered.Colors = getColorIdentity(card.color_identity);
     cardFiltered.Type = card.type_line;
-    cardFiltered.PowerToughness = card.power + "/" + card.toughness;
+    if (Object.hasOwn(card, "power")) cardFiltered.PowerToughness = card.power + "/" + card.toughness;
     cardFiltered.OracleText = card.oracle_text;
     cardFiltered.Watermark = card.watermark;
     cardFiltered.Set = card.set_name;
