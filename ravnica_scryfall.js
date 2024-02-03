@@ -11,7 +11,7 @@ console.log("big query inc..");
 // process data to remove unused JSON properties and
 // add it to our result array of JSONs
 const query =
-  "(game:paper) (block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic))";
+  "(game:paper) (set:mkm OR set:rvr OR set:mkc OR block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic))";
 var result = [];
 var responses = [];
 var promises = [];
