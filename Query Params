@@ -21,6 +21,8 @@ q:  // The queries that are being combined above
 
     For all Ravnica blocks cards that have lore related to a guild - (game:paper) (block:grn OR block:rtr OR block:rav) (lore=azorius OR boros OR dimir OR golgari OR gruul OR izzet OR orzhov OR rakdos OR selesnya OR simic)
 
+    Ravnica "Clue" cards that have new art - set:clu new:art // new:art is also used for Murders at Karlov Manor: Commander
+
 order: // How Scryfall should sort the returned cards.
     color - sort by color
 
