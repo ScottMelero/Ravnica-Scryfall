@@ -24,9 +24,10 @@ const qFilters = "(flavor:/^[^s]/ OR type=land OR (set:rvr new:art) OR (id=azori
 const qAllSets = "(type=plane type=ravnica) OR (watermark = azorius OR watermark = boros OR watermark = dimir OR watermark = golgari OR watermark = gruul OR watermark = izzet OR watermark = orzhov OR watermark = rakdos OR watermark = selesnya OR watermark = simic) OR (lore = azorius OR lore = boros OR lore = dimir OR lore = golgari OR lore = gruul OR lore = izzet OR lore = orzhov OR lore = rakdos OR lore = selesnya OR lore = simic) OR (lore = Domri OR lore =\"Ral Zarek\" OR lore=Vraska " /*+ "OR" + namedCharacters*/ + " )"
 
 
-const query = "(" + qSets + qFilters + ") OR " + qAllSets
-//const query =
-//  "(game:paper) ((set:clu OR set:mkm OR set:rvr OR (set:mkc not:reprint) OR block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (set:rvr new:art) OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic)) OR (type=plane type=ravnica) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic))";
+//const query = "(" + qSets + qFilters + ") OR " + qAllSets
+
+const query =
+    "(type=plane type=ravnica) OR ((set:mkm OR set:rvr OR (set:mkc new:art) OR set:clu OR block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic))) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic)"
 var result = [];
 var responses = [];
 var promises = [];
@@ -93,19 +94,31 @@ function processResponses(cardData) {
         
     uniqueIds.add(card.id);
 
-    var cardFiltered = {};
-    cardFiltered.Name = card.name;
-    cardFiltered.Image = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 10)))"; // Formula for geeting the image from a url in the cell 10 columns to the right
-    cardFiltered.Artist = card.artist;
-    cardFiltered.Flavor = card.flavor_text;
-    cardFiltered.Guild = findGuild(card);
-    cardFiltered.Colors = getColorIdentity(card.color_identity);
-    cardFiltered.Type = card.type_line;
-    if (Object.hasOwn(card, "power")) cardFiltered.PowerToughness = card.power + "/" + card.toughness;
-    cardFiltered.OracleText = card.oracle_text;
-    cardFiltered.Watermark = card.watermark;
-    cardFiltered.Set = card.set_name;
-    cardFiltered.ImageLink = card.image_uris.art_crop;
+      var cardFiltered = {};
+      
+    try {
+        cardFiltered.Name = card.name;
+        cardFiltered.Image = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 10)))"; // Formula for geeting the image from a url in the cell 10 columns to the right
+        cardFiltered.Artist = card.artist;
+        cardFiltered.Flavor = card.flavor_text;
+        cardFiltered.Guild = findGuild(card);
+        cardFiltered.Colors = getColorIdentity(card.color_identity);
+        cardFiltered.Type = card.type_line;
+        if (Object.hasOwn(card, "power")) cardFiltered.PowerToughness = card.power + "/" + card.toughness;
+        cardFiltered.OracleText = card.oracle_text;
+        cardFiltered.Watermark = card.watermark;
+        cardFiltered.Set = card.set_name;
+        if (!Object.hasOwn(card, "image_uris")) {
+            cardFiltered.ImageLink = card.card_faces[0].image_uris.art_crop;
+            cardFiltered.BackImage = "=image(INDIRECT(ADDRESS(ROW(), COLUMN() + 1)))";
+            cardFiltered.BackFaceImageLink = card.card_faces[1].image_uris.art_crop;
+        }
+        else cardFiltered.ImageLink = card.image_uris.art_crop;
+    } catch (TypeError) {
+        console.log(card.name + " throws " + TypeError);
+        return;
+    }
+    
 
     result.push(cardFiltered);
   });
