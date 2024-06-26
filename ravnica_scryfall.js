@@ -10,8 +10,23 @@ console.log("big query inc..");
 // store "id:" in uniqueIds set
 // process data to remove unused JSON properties and
 // add it to our result array of JSONs
-const query =
-  "(type=plane type=ravnica) OR ((set:mkm OR set:rvr OR (set:mkc new:art) OR (set:clu not:reprint) OR block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic))) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic)";
+
+// All named characters from Ravnica (source: mtg wiki)
+const namedCharacters = "lore=\"Agrus Kos\" OR lore=\"Alquist Proft\" OR lore=\"Ambrellin\" OR lore=\"Ambroz Benakov\" OR lore=\"Amzu\" OR lore=\"Andra\" OR lore=\"Anzrag\" OR lore=\"Araithia Shokta\" OR lore=\"Ari Shokta\" OR lore=\"Arrus\" OR lore=\"Baas\" OR lore=\"Babolax\" OR lore=\"Barrin Grevik\" OR lore=\"Bartek\" OR lore=\"Bayul\" OR lore=\"Bell Borca\" OR lore=\"Bilagru\" OR lore=\"Biracazir\" OR lore=\"Bitsy\" OR lore=\"Blim\" OR lore=\"Bori Andon\" OR lore=\"Boruvo\" OR lore=\"Bosco\" OR lore=\"Bougrat\" OR lore=\"Bozak\" OR lore=\"Branko\" OR lore=\"Bruvac\" OR lore=\"Castan\" OR lore=\"Cecilee\" OR lore=\"Circu\" OR lore=\"Crixizix\" OR lore=\"Damir\" OR lore=\"Dars Gostok\" OR lore=\"Darux\" OR lore=\"Delney\" OR lore=\"Durri\" OR lore=\"Duskana\" OR lore=\"Emil\" OR lore=\"Etrata\" OR lore=\"Ezrim\" OR lore=\"Fblthp\" OR lore=\"Ferrous Rokiric\" OR lore=\"Florin Ozbolt\" OR lore=\"Fonn Zunich\" OR lore=\"Forenzad\" OR lore=\"Gan Shokta\" OR lore=\"Geetra\" OR lore=\"Gerava\" OR lore=\"Ghired\" OR lore=\"Gorev Hadszak\" OR lore=\"Govan Radley\" OR lore=\"Grimbly Wothis\" OR lore=\"Grugg Brothers\" OR lore=\"Helligan\" OR lore=\"Helsk\" OR lore=\"Igort Uriklatz\" OR lore=\"Ilharg\" OR lore=\"Ilona\" OR lore=\"Iv\'g\'nork\" OR lore=\"Jace Beleren\" OR lore=\"Janik\" OR lore=\"Javy\" OR lore=\"Jebun Kirescu\" OR lore=\"Jek\" OR lore=\"Jiri\" OR lore=\"Jitka Wothis\" OR lore=\"Johrum\" OR lore=\"Judith\" OR lore=\"Juri\" OR lore=\"Kal\" OR lore=\"Kaluzax\" OR lore=\"Karlov\" OR lore=\"Kaust\" OR lore=\"Kel\" OR lore=\"Kelen Jek\" OR lore=\"Kodolaag\" OR lore=\"Krenko\" OR lore=\"Kuba\" OR lore=\"Kylox\" OR lore=\"Leighbet\" OR lore=\"Lonis\" OR lore=\"Lord Kazmyr\" OR lore=\"Madarrak\" OR lore=\"Maladola\" OR lore=\"Maree\" OR lore=\"Marvo\" OR lore=\"Massacre Girl\" OR lore=\"Mazena\" OR lore=\"Mazirek\" OR lore=\"Medge\" OR lore=\"Melek\" OR lore=\"Melisk\" OR lore=\"Merret\" OR lore=\"Migellic\" OR lore=\"Mindosz\" OR lore=\"Miri\" OR lore=\"Mirko Vosk\" OR lore=\"Mizzix\" OR lore=\"Modar Bejiri\" OR lore=\"Morska\" OR lore=\"Myczil Savod Zunich\" OR lore=\"Myczil Zunich\" OR lore=\"Nebun\" OR lore=\"Nelly Borca\" OR lore=\"Nhillosh\" OR lore=\"Nikya\" OR lore=\"Oana Vitellius I\" OR lore=\"Ossett Weslyn\" OR lore=\"Otrovac\" OR lore=\"Palla\" OR lore=\"Parisha\" OR lore=\"Pel Javya\" OR lore=\"Phaskin\" OR lore=\"Pivlic\" OR lore=\"Project Kraj\" OR lore=\"Ptero Zallik\" OR lore=\"Radomir\" OR lore=\"Raiche Belas\" OR lore=\"Relov\" OR lore=\"Rezajaelis Agnaus\" OR lore=\"Rinni\" OR lore=\"Ritjit\" OR lore=\"Roalesk\" OR lore=\"Ruric Thar\" OR lore=\"Ruzi\" OR lore=\"Sadruna\" OR lore=\"Sarusin\" OR lore=\"Senka\" OR lore=\"Shattergang Brothers\" OR lore=\"Shokol Wenslauv\" OR lore=\"Skrygix\" OR lore=\"Sobeslav\" OR lore=\"Sophia\" OR lore=\"Squelch\" OR lore=\"Stanslov\" OR lore=\"Storrev\" OR lore=\"Sulli Valenco\" OR lore=\"Suniel\" OR lore=\"Symond Halm\" OR lore=\"Tajic\" OR lore=\"Tamsyn Sweene\" OR lore=\"Tanek\" OR lore=\"Tarem\" OR lore=\"Terrik\" OR lore=\"Tesak\" OR lore=\"Teyo Verada\" OR lore=\"The Cozen\" OR lore=\"Tibor and Lumia\" OR lore=\"Tolsimir Wolfblood\" OR lore=\"Trenz\" OR lore=\"Trifon\" OR lore=\"Trijiro\" OR lore=\"Troyan\" OR lore=\"Ulasht\" OR lore=\"Vadax Gor\" OR lore=\"Varolz\" OR lore=\"Vazozav\" OR lore=\"Vict Gharti\" OR lore=\"Voja Fenstalker\" OR lore=\"Vor Golozar\" OR lore=\"Vorel\" OR lore=\"Wrizfar Barkfeather\" OR lore=\"Wyoryn\'vili\" OR lore=\"Xeddick\" OR lore=\"Yaraghiya\" OR lore=\"Yarus\" OR lore=\"Yeva\" OR lore=\"Yzaak\" OR lore=\"Zlovol\" OR lore=\"Zomaj Hauc\""
+
+// The sets to search
+const qSets = "(set:clu OR set:mkm OR set:rvr OR (set:mkc new:art) OR block:grn OR block:rtr OR block:rav)"
+
+// The filters to be "AND"ed with the sets
+const qFilters = "(flavor:/^[^s]/ OR type=land OR (set:rvr new:art) OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic))"
+
+// Filters to search all cards, regardless of set. Used for Guild watermarks, "Lore" searches, and irregular cards (like planes)
+const qAllSets = "(type=plane type=ravnica) OR (watermark = azorius OR watermark = boros OR watermark = dimir OR watermark = golgari OR watermark = gruul OR watermark = izzet OR watermark = orzhov OR watermark = rakdos OR watermark = selesnya OR watermark = simic) OR (lore = azorius OR lore = boros OR lore = dimir OR lore = golgari OR lore = gruul OR lore = izzet OR lore = orzhov OR lore = rakdos OR lore = selesnya OR lore = simic) OR (lore = Domri OR lore =\"Ral Zarek\" OR lore=Vraska " /*+ "OR" + namedCharacters*/ + " )"
+
+
+const query = "(" + qSets + qFilters + ") OR " + qAllSets
+//const query =
+//  "(game:paper) ((set:clu OR set:mkm OR set:rvr OR (set:mkc not:reprint) OR block:grn OR block:rtr OR block:rav) (flavor:/^[^s]/ OR type=land OR (set:rvr new:art) OR (id=azorius OR id=boros OR id=dimir OR id=golgari OR id=gruul OR id=izzet OR id=orzhov OR id=rakdos OR id=selesnya OR id=simic)) OR (type=plane type=ravnica) OR (watermark=azorius OR watermark=boros OR watermark=dimir OR watermark=golgari OR watermark=gruul OR watermark=izzet OR watermark=orzhov OR watermark=rakdos OR watermark=selesnya OR watermark=simic) OR (lore=azorius OR lore=boros OR lore=dimir OR lore=golgari OR lore=gruul OR lore=izzet OR lore=orzhov OR lore=rakdos OR lore=selesnya OR lore=simic))";
 var result = [];
 var responses = [];
 var promises = [];
@@ -53,13 +68,12 @@ function queryScryfall(query, currentPage = 1) {
         }
       })
       .catch(function (error) {
-        console.log("error occured: " + error);
+        console.log("error occured: " + error + ", " + error.response.data.details);
       })
   );
 
   Promise.all(promises).then(() => {
     processResponses(responses);
-    // should output 2444
   });
 }
 
@@ -110,7 +124,6 @@ function outputXLSX(result) {
   xlsx.utils.book_append_sheet(newWorkBook, newWorkSheet, "New Sheet");
   xlsx.writeFile(newWorkBook, "ravnica_scryfall.xlsx");
 }
-
 
 
 /**
